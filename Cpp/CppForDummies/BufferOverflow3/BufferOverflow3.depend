@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1455663738 source:d:\cpp_programs_from_book\bufferoverflow3\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+	<vector>
+
+1455825877 source:d:\cpp_dummies_programs\bufferoverflow3\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<fstream>
+	<cstring>
+

@@ -1,0 +1,6 @@
+a=a+1 
+zrot=zrot+10 
+set view xrot,(2160-zrot)%360 
+splot -x**2-y**2 
+pause 0.1 
+if (a<50) reread

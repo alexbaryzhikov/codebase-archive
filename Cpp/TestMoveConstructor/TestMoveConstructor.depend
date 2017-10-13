@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1468620506 source:d:\cpp_projects\testmoveconstructor\main.cpp
+	<iostream>
+	<vector>
+	<chrono>
+

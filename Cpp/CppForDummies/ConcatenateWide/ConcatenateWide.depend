@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1455828153 source:d:\cpp_programs_from_book\concatenatewide\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+

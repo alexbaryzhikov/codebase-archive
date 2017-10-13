@@ -1,0 +1,2 @@
+@del *.lzw
+@del *.out

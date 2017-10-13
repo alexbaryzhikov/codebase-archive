@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1412199520 source:d:\cpp_programs_from_book\branchtest\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+

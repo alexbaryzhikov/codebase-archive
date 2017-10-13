@@ -1,0 +1,159 @@
+// main.cpp
+
+#include <cstdlib>
+#include <iostream>
+#include <list>
+using namespace std;
+
+class Account
+{
+public:
+	Account(unsigned _accNum) : number(_accNum),  balance(0.0) { ++count; }
+	// selectors
+	static int	        getNoAccounts() { return count; }
+	virtual const char* getType() = 0;
+	unsigned	        getNumber() { return number; }
+	double		        getBalance() { return balance; }
+	void		        displayInfo() { cout << getType() << " account " << number << " = " << balance << '\n';  }
+	// transactions
+	void			    deposit(double _x) { balance += _x; }
+	virtual bool	    withdraw(double);
+
+protected:
+	unsigned	    number;
+	double		    balance;
+	static int	    count;
+};
+
+int Account::count = 0;
+
+bool Account::withdraw(double _x)
+{
+	if (_x > balance)
+	{
+		cout << "ERROR: insufficient funds.\n";
+		return false;
+	}
+	else balance -= _x;
+	return true;
+}
+
+class Checking : public Account
+{
+public:
+	Checking(unsigned _accNum) : Account(_accNum) {}
+	virtual const char* getType() { return "Checking"; }
+	virtual bool withdraw(double);
+};
+
+bool Checking::withdraw(double _x)
+{
+	bool result = Account::withdraw(_x);
+	if (result) { if (balance < 500) balance -= 0.50; }
+	else { cout << "Account balance = " << balance << ", check = " << _x << '\n'; }
+	return result;
+}
+
+class Savings : public Account
+{
+public:
+	Savings(unsigned _accNum) : Account(_accNum), noWithdrawals(0) {}
+	virtual const char* getType() { return "Savings"; }
+	virtual bool withdraw(double);
+protected:
+	int noWithdrawals;
+};
+
+bool Savings::withdraw(double _x)
+{
+    bool result = Account::withdraw(_x);
+	if (result) { if (++noWithdrawals > 1) balance -= 5.0; }
+	else { cout << "account balance = " << balance << ", withdrawal = " << _x << '\n'; }
+	return result;
+}
+
+typedef Account* PAcc;
+
+void getAccounts(list<PAcc>&);
+void displaySummary(list<PAcc>&);
+
+int main()
+{
+	cout << "PROGRAM: Budget05\n";
+	cout << "This program creates accounts, accumulates balances and stores them in a list\n";
+
+	list<PAcc> accLL;
+
+	getAccounts(accLL);
+	displaySummary(accLL);
+
+	system("PAUSE");
+	return 0;
+}
+
+unsigned getNumber()
+{
+	unsigned n;
+	cout << "Enter account number:\n> ";
+	cin >> n;
+	return n;
+}
+
+void process(PAcc _pAcc)
+{
+	double d;
+	cout << "Enter positive for deposit, negative for withdrawal, zero to terminate:\n";
+	for (;;)
+	{
+		cout << "> ";
+		cin >> d;
+		if (d == 0.0) break;
+		if (d > 0.0) _pAcc->deposit(d);
+		else _pAcc->withdraw(-d);
+	}
+}
+
+void getAccounts(list<PAcc>& _pAccLL)
+{
+	char c;
+	PAcc pNewAcc = nullptr;
+	for (;;)
+	{
+		cout << "Enter c for Checking, s for Savings, x to terminate:\n> ";
+		cin >> c;
+		switch (c)
+		{
+		case 'c':
+		case 'C':
+			pNewAcc = new Checking(getNumber());
+			break;
+		case 's':
+		case 'S':
+			pNewAcc = new Savings(getNumber());
+			break;
+		case 'x':
+		case 'X':
+			return;
+		default:
+			cout << "ERROR: wrong request";
+		}
+		if (pNewAcc)
+		{
+		    _pAccLL.push_back(pNewAcc);
+		    process(pNewAcc);
+		}
+	}
+}
+
+void displaySummary(list<PAcc>& _pAccLL)
+{
+	double total = 0.0;
+	cout << "\nAccounts summary:\n";
+	for (list<PAcc>::iterator i = _pAccLL.begin(); i != _pAccLL.end(); ++i)
+	{
+		PAcc pAcc = *i;
+		pAcc->displayInfo();
+		total += pAcc->getBalance();
+	}
+	cout << "\nTotal for all accounts = " << total << "\n\n";
+}

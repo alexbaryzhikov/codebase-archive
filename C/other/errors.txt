@@ -1,0 +1,112 @@
+./test: Success
+./test: Too many open files in system
+./test: Too many open files
+./test: Inappropriate ioctl for device
+./test: Text file busy
+./test: File too large
+./test: No space left on device
+./test: Illegal seek
+./test: Read-only file system
+./test: Too many links
+./test: Broken pipe
+./test: Numerical argument out of domain
+./test: Numerical result out of range
+./test: Resource deadlock avoided
+./test: File name too long
+./test: No locks available
+./test: Function not implemented
+./test: Directory not empty
+./test: Too many levels of symbolic links
+./test: Unknown error 41
+./test: No message of desired type
+./test: Identifier removed
+./test: Channel number out of range
+./test: Level 2 not synchronized
+./test: Level 3 halted
+./test: Level 3 reset
+./test: Link number out of range
+./test: Protocol driver not attached
+./test: No CSI structure available
+./test: Level 2 halted
+./test: Invalid exchange
+./test: Invalid request descriptor
+./test: Exchange full
+./test: No anode
+./test: Invalid request code
+./test: Invalid slot
+./test: Unknown error 58
+./test: Bad font file format
+./test: Device not a stream
+./test: No data available
+./test: Timer expired
+./test: Out of streams resources
+./test: Machine is not on the network
+./test: Package not installed
+./test: Object is remote
+./test: Link has been severed
+./test: Advertise error
+./test: Srmount error
+./test: Communication error on send
+./test: Protocol error
+./test: Multihop attempted
+./test: RFS specific error
+./test: Bad message
+./test: Value too large for defined data type
+./test: Name not unique on network
+./test: File descriptor in bad state
+./test: Remote address changed
+./test: Can not access a needed shared library
+./test: Accessing a corrupted shared library
+./test: .lib section in a.out corrupted
+./test: Attempting to link in too many shared libraries
+./test: Cannot exec a shared library directly
+./test: Invalid or incomplete multibyte or wide character
+./test: Interrupted system call should be restarted
+./test: Streams pipe error
+./test: Too many users
+./test: Socket operation on non-socket
+./test: Destination address required
+./test: Message too long
+./test: Protocol wrong type for socket
+./test: Protocol not available
+./test: Protocol not supported
+./test: Socket type not supported
+./test: Operation not supported
+./test: Protocol family not supported
+./test: Address family not supported by protocol
+./test: Address already in use
+./test: Cannot assign requested address
+./test: Network is down
+./test: Network is unreachable
+./test: Network dropped connection on reset
+./test: Software caused connection abort
+./test: Connection reset by peer
+./test: No buffer space available
+./test: Transport endpoint is already connected
+./test: Transport endpoint is not connected
+./test: Cannot send after transport endpoint shutdown
+./test: Too many references: cannot splice
+./test: Connection timed out
+./test: Connection refused
+./test: Host is down
+./test: No route to host
+./test: Operation already in progress
+./test: Operation now in progress
+./test: Stale file handle
+./test: Structure needs cleaning
+./test: Not a XENIX named type file
+./test: No XENIX semaphores available
+./test: Is a named type file
+./test: Remote I/O error
+./test: Disk quota exceeded
+./test: No medium found
+./test: Wrong medium type
+./test: Operation canceled
+./test: Required key not available
+./test: Key has expired
+./test: Key has been revoked
+./test: Key was rejected by service
+./test: Owner died
+./test: State not recoverable
+./test: Operation not possible due to RF-kill
+./test: Memory page has hardware error

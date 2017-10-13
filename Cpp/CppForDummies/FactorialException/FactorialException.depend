@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1454962820 source:d:\cpp_programs_from_book\factorialexception\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+

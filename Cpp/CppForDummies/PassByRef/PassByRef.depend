@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1440542630 source:d:\cpp_programs_from_book\passbyref\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+

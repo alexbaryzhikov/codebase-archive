@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1447974079 source:d:\cpp_programs_from_book\fortest1\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+

@@ -1,0 +1,120 @@
+//
+// This script creates IK-handle with hand/foot and elbow/knee locators setup
+//
+// 1. Select 3 joints in order:
+//    1) shoulder 2) elbow 3) hand
+// 2. Run script
+// 3. Select and move elbow locator to appropriate position
+// 4. Run script
+
+global string $G_Select[];
+
+global proc FirstProcedure()
+{ 
+	global string $G_Select[];
+	string $select[] = `ls -fl -sl`;
+	$G_Select=$select;
+	polySphere -name Sphere_Sustav -r 1 -sx 10 -sy 10 -ax 0 1 0 -tx 0 -ch 0.5;
+
+	select $select[1];
+	select -tgl Sphere_Sustav ;
+	pointConstraint -offset 0 0 0 -weight 1;                                           
+
+	spaceLocator -name Locator_IK ;scale -r 10 10 10; 
+
+	select $select[2];
+	select -tgl Locator_IK ;
+	parentConstraint -dc -weight 1;
+
+	spaceLocator -name Loc_Pole_Vector ;scale -r 10 10 10; 
+
+	select $select[1];
+	select -tgl Loc_Pole_Vector ;
+	parentConstraint -dc -weight 1;
+
+	select -r Loc_Pole_Vector_parentConstraint1 ;
+	delete;
+
+	select -r Loc_Pole_Vector ;
+}
+
+global proc SecondProcedure()
+{
+	global string $G_Select[];
+	string $select[]=$G_Select;
+	modelEditor -e -allObjects 0 modelPanel4;
+
+	setAttr ".rotateX" 0;
+	setAttr ".rotateY" 0;
+	setAttr ".rotateZ" 0;
+
+	select -r $select[1];
+	select -tgl Loc_Pole_Vector;
+	parentConstraint -mo -weight 1;
+
+	select -r Loc_Pole_Vector;
+	select -tgl Locator_IK;
+
+	setAttr -k off .scaleX;
+	setAttr -k off .scaleY;
+	setAttr -k off .scaleZ;
+	setAttr -k off .visibility;
+
+	select -r Loc_Pole_Vector ;
+	setAttr -lock true "Loc_Pole_Vector.rx";
+	setAttr -lock true "Loc_Pole_Vector.ry";
+	setAttr -lock true "Loc_Pole_Vector.rz";
+
+	select -r Locator_IK ;
+	select -tgl Loc_Pole_Vector ;
+	select -add Sphere_Sustav ;
+	BakeSimulation;
+
+	select -r Loc_Pole_Vector_parentConstraint1 ;
+	select -add Locator_IK_parentConstraint1 ;
+	select -add  Sphere_Sustav_pointConstraint1 ;
+	delete;
+
+	ikHandle -n "ikhandlerighthand" -sj $select[0] -ee $select[2];
+							 
+	select Locator_IK ;
+	select -add ikhandlerighthand ;
+	pointConstraint -offset 0 0 0 -weight 1;
+
+	select -r Loc_Pole_Vector;
+	select -add ikhandlerighthand;
+	poleVectorConstraint -weight 1;
+
+	select -r Locator_IK ;
+	select -add $select[2];
+	orientConstraint -offset 0 0 0 -weight 1;
+	 
+	select -r Loc_Pole_Vector ;
+
+	string $locColor[] = `ls -sl`;
+	setAttr ($locColor[0] + ".overrideEnabled") 1;
+	setAttr ($locColor[0] + ".overrideColor") 6;
+
+	select -r Locator_IK ;
+	string $locColor[] = `ls -sl`;
+	setAttr ($locColor[0] + ".overrideEnabled") 1;
+	setAttr ($locColor[0] + ".overrideColor") 6;
+
+	rename "Locator_IK" "Locator_IK1";
+	rename "Loc_Pole_Vector" "Loc_Pole_Vector1";
+	rename "Sphere_Sustav" "Sphere_Sustav1";
+	rename "ikhandlerighthand" "ikhandlerighthand1";
+	rename "ikhandlerighthand_pointConstraint1" "R_hand1";
+	rename "ikhandlerighthand_poleVectorConstraint1" "R_handel1";
+
+	modelEditor -e -allObjects 1 modelPanel4;
+}
+
+global proc PoleVectorProcedure()
+{
+	string $select[]=`ls -sl`;
+	if(size($select)==3) FirstProcedure();
+	else SecondProcedure();
+}
+
+PoleVectorProcedure();

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1455052069 source:d:\cpp_programs_from_book\cascadingexception\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+

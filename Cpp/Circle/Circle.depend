@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1452290052 source:d:\cpp_projects\circle\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<windows.h>
+	<conio.h>
+	<math.h>
+

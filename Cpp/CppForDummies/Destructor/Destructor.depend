@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1448399717 source:d:\cpp_programs_from_book\destructor\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+

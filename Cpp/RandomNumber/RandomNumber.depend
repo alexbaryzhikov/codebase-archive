@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1448670138 source:d:\cpp_programs_from_book\randomnumber\main.cpp
+	<iostream>
+	<random>
+	<chrono>
+

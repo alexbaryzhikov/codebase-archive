@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1449609411 source:d:\cpp_projects\gamblingwc\main\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<random>
+	<chrono>
+	<windows.h>
+
+1449609411 source:d:\cpp_projects\gambling\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<random>
+	<chrono>
+	<windows.h>
+

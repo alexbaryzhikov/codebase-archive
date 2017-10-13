@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1440115437 source:d:\cpp_programs_from_book\breakdemo\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+

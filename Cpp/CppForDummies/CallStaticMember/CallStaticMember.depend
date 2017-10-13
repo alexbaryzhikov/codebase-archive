@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1450392309 source:d:\cpp_programs_from_book\callstaticmember\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+
+1450392309 source:d:\cpp_dummies_programs\callstaticmember\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+

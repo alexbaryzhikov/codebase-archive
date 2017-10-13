@@ -1,0 +1,9 @@
+SCREEN_W        = 1200
+SCREEN_H        = 1200
+SCREEN_MODE     = 0
+# SCREEN_W      = 2560
+# SCREEN_H      = 1440
+# SCREEN_MODE   = 0 | FULLSCREEN #| DOUBLEBUF | HWSURFACE | RESIZABLE | NOFRAME
+BG_COLOR        = 0
+MAX_FPS         = 120
+DRAW_FPS        = True

@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1456152308 source:d:\cpp_programs_from_book\test\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<iomanip>
+
+1412202921 source:d:\cpp_programs_from_book\test\branchtest.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+
+1412202596 source:d:\cpp_programs_from_book\test\bittest.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+
+1412202921 d:\cpp_programs_from_book\test\branchtest.cpp
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+

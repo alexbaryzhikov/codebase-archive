@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1453931244 source:d:\cpp_programs_from_book\demomoveoperator\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<cstring>
+

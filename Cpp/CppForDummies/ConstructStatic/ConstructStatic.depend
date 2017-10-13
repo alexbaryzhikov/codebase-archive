@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1449778297 source:d:\cpp_programs_from_book\constructstatic\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+
