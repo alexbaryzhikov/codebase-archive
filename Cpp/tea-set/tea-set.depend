@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1451738900 source:d:\cpp_projects\tea-set\main.cpp
-	<cstdio>
-	<cstdlib>
-	<iostream>
-

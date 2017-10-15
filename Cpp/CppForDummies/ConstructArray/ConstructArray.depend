@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1449785704 source:d:\cpp_programs_from_book\constructarray\main.cpp
-	<cstdio>
-	<cstdlib>
-	<iostream>
-

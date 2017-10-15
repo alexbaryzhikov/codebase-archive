@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1440023645 source:d:\cpp_programs_from_book\whiletest\main.cpp
-	<stdio.h>
-	<stdlib.h>
-	<iostream>
-	<windows.h>
-

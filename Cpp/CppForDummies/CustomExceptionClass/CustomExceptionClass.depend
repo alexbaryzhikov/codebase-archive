@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1455050510 source:d:\cpp_programs_from_book\customexceptionclass\main.cpp
-	<cstdio>
-	<cstdlib>
-	<iostream>
-	<sstream>
-

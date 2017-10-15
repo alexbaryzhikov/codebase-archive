@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1442530604 source:d:\cpp_programs_from_book\displaystring\main.cpp
-	<stdio.h>
-	<stdlib.h>
-	<iostream>
-

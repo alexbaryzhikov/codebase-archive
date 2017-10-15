@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1412631658 source:d:\cpp_programs_from_book\functiondemo\main.cpp
-	<cstdio>
-	<cstdlib>
-	<iostream>
-

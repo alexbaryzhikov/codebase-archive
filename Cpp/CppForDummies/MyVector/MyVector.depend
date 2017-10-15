@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1455264197 source:d:\cpp_programs_from_book\myvector\main.cpp
-	<cstdio>
-	<cstdlib>
-	<iostream>
-	"TemplateVector.h"
-
-1455264112 d:\cpp_programs_from_book\myvector\templatevector.h
-

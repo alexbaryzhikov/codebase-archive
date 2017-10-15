@@ -51,7 +51,7 @@ class DisplayMessage implements Runnable {
     }
 }
 
-/* Create a thread to extentd Thread */
+/* Create a thread to extend Thread */
 class GuessANumber extends Thread {
     private int number;
     private Random rnd;

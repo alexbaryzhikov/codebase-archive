@@ -3,8 +3,10 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define 1 rand()
-
 int main(int argc, const char *argv[]) {
-    printf("%g\n", 1);
+    {
+        int i = 99;
+        printf("inside block - %d\n", i);
+    }
+    printf("outside block - %d\n", i);
 }

@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1450132751 source:d:\cpp_programs_from_book\shallowcopy\main.cpp
-	<cstdio>
-	<cstdlib>
-	<iostream>
-

@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1448663083 source:d:\cpp_programs_from_book\chrono\main.cpp
-	<iostream>
-	<random>
-	<chrono>
-
