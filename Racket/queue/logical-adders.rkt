@@ -1,7 +1,6 @@
 #lang racket
-(require racket/include)
-(include "agenda.rkt")
-(include "queue.rkt")
+
+(require "agenda.rkt")
 
 ; Subject: Full adder sumilation using event-driven system
 

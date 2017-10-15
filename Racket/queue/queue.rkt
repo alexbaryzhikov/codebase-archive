@@ -1,8 +1,10 @@
-;#lang racket
+#lang racket
 
 ; ---------------------------------------
 ; Queue
 ; ---------------------------------------
+
+(provide (all-defined-out))
 
 (define (make-queue)
   (let ((front-ptr '()) (rear-ptr '()))
@@ -30,7 +32,7 @@
              (display-list (mcdr front-ptr)))))
     (define (display-list l)
       (cond ((null? l) (display " )"))
-            (else (display (format " . ~a" (mcar l)))
+            (else (display (format ", ~a" (mcar l)))
                   (display-list (mcdr l)))))
     (define (dispatch m)
       (cond ((eq? m 'empty?) (empty-q?))

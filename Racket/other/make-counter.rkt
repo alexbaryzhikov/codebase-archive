@@ -1,14 +1,5 @@
 #lang racket
 
-(define make-counter
-  (lambda(n)
-    (lambda()
-      (set! n (add1 n))
-      n)))
-
-(define c1 (make-counter 0))
-(define c2 (make-counter 10))
-
 ; Actions and Identity
 ;
 ; We say that an action, A, had an effect
@@ -20,3 +11,12 @@
 ; We say that two objects, X and Y, are
 ; the same if any action which has an
 ; effect on X has the same effect on Y.
+
+(define (make-counter start)
+  (define n (sub1 start))
+  (λ ()
+    (set! n (add1 n)) ; side effect
+    n))
+
+(define c1 (make-counter 0))
+(printf "~a ~a ~a\n" (c1) (c1) (c1))

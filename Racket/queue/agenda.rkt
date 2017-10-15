@@ -1,11 +1,12 @@
-;#lang racket
+#lang racket
 
-;(require racket/include)
-;(include "queue.rkt")
+(require "queue.rkt")
 
 ; ---------------------------------------
 ; Agenda
 ; ---------------------------------------
+
+(provide (all-defined-out))
 
 ; time segment
 (define (make-time-segment time queue)
@@ -29,19 +30,19 @@
 (define (display-segments agenda)
   (let ((segs (segments agenda)))
     (define (show-seg s)
-      (display (format " [ ~a . " (segment-time (mcar s))))
+      (display (format " [~a: " (segment-time (mcar s))))
       (print-queue (segment-queue (mcar s)))
-      (display " ]")
+      (displayln "]")
       (if (null? (mcdr s))
           (void)
           (show-seg (mcdr s))))
     (cond ((null? segs) (display "()"))
           (else
-           (display "(")
+           (displayln "(")
            (show-seg segs)
-           (display " )")))))
+           (displayln ")")))))
 
-  ; add action to agenda
+; add action to agenda
 (define (add-to-agenda! time action agenda)
 
   (define (belongs-before? segments)
@@ -81,7 +82,7 @@
         (set-segments! agenda (rest-segments agenda))
         (void))))
 
-; first agenda item
+; First agenda item
 (define (first-agenda-item agenda)
   (if (empty-agenda? agenda)
       (error "Agenda is empty -- FIRST-AGENDA-ITEM")
@@ -89,24 +90,21 @@
         (set-current-time! agenda (segment-time first-seg))
         (front-queue (segment-queue first-seg)))))
 
-; default agenda
+;;; Default agenda
 
 (define the-agenda (make-agenda))
 
 (define (after-delay delay action)
-  (add-to-agenda!
-   (+ delay (current-time the-agenda))
-   action
-   the-agenda))
+  (add-to-agenda! (+ delay (current-time the-agenda)) action the-agenda))
 
 (define (propagate)
-  (cond ((empty-agenda? the-agenda) 'done)
-        (else
-         ((first-agenda-item the-agenda))
-         (remove-first-agenda-item! the-agenda)
-         (propagate))))
+  (cond
+    ((empty-agenda? the-agenda) 'done)
+    (else ((first-agenda-item the-agenda))
+          (remove-first-agenda-item! the-agenda)
+          (propagate))))
 
-;;; test
+;;; Test
 
 ;(add-to-agenda! 0 (lambda() (displayln 'a)) the-agenda)
 ;(after-delay 1 (lambda() (displayln 'b)))
@@ -115,4 +113,7 @@
 ;(after-delay 4 (lambda() (displayln 'e)))
 ;(after-delay 4 (lambda() (displayln 'f)))
 ;(after-delay 4 (lambda() (displayln 'g)))
+;(displayln "Agenda:")
 ;(display-segments the-agenda)
+;(displayln "\nPropagate...")
+;(propagate)

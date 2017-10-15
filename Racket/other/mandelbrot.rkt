@@ -23,5 +23,4 @@
     (send dc draw-point x y))
   (send target save-file "mandelbrot.png" 'png))
  
-(mandelbrot 300 200)
- 
+(mandelbrot 640 480)
