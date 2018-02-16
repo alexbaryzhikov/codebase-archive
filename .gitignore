@@ -4,3 +4,5 @@ obj
 compiled
 __pycache__
 workspace.xml
+venv
+.idea
