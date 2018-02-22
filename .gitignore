@@ -1,8 +1,10 @@
 *.class
 *.o
-obj
-compiled
-__pycache__
+compiled/
+.idea/
+obj/
+out/
+__pycache__/
+venv/
 workspace.xml
-venv
-.idea
+
