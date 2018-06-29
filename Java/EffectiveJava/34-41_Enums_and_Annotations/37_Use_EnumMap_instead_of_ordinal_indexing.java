@@ -30,8 +30,7 @@ for (Herb h : garden) {
 
 // Print the results
 for (int i = 0; i < herbsByType.length; i++) {
-  System.out.printf("%s: %s%n",
-  Herb.Type.values()[i], herbsByType[i]);
+  System.out.printf("%s: %s%n", Herb.Type.values()[i], herbsByType[i]);
 }
 
 
