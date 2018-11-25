@@ -1,0 +1,11 @@
+Arrow direction:
+
+@startuml
+hide empty description
+
+[*] -up-> First
+First -right-> Second
+Second --> Third
+Third -left-> Last
+
+@enduml

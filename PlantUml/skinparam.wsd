@@ -1,0 +1,29 @@
+Skinparam:
+
+@startuml
+hide empty description
+skinparam backgroundColor #ffffff
+
+skinparam state {
+    StartColor Purple
+    EndColor Turquoise
+    BackgroundColor #cfe2f3
+    BackgroundColor<<Warning>> #ffa087
+    BackgroundColor<<Ok>> #b6d7a8
+    BorderColor #000000
+    FontName Roboto
+    FontSize 17
+}
+
+[*] --> NotShooting
+
+state "Not Shooting State" as NotShooting {
+    state "Idle mode" as Idle <<Ok>>
+    state "Configuring mode" as Configuring <<Warning>>
+    [*] --> Idle
+    Idle --> Configuring : EvConfig
+    Configuring --> Idle : EvConfig
+}
+
+NotShooting --> [*]
+@enduml
