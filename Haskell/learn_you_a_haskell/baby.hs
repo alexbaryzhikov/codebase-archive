@@ -40,5 +40,13 @@ pyth' n = do
     then [(x, y, z)]
     else []
 
+
+circumference :: Double -> Double
+circumference r = 2 * pi * r
+
+
+b = fromIntegral (length [1,2,3]) + 3.2
+
 main :: IO ()
 main = print $ pyth' 25
+
