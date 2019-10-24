@@ -7,6 +7,8 @@
 #include <random>
 #include <chrono>
 #include <windows.h>
+#include <io.h>
+#include <fcntl.h>
 
 #define LANG 0  // 0 = english, 1 = russian
 
@@ -207,12 +209,14 @@ public:
         // remember default output colors
         CONSOLE_SCREEN_BUFFER_INFO csbi;
         GetConsoleScreenBufferInfo( hstdout, &csbi );
-        char crd[4] = { rankS[r][0], rankS[r][1], suitS[s], '\0' };
-        int cardColors[4] = { 0xD, 0xE, 0xB, 0xA };  // hearts, diamonds, clubs, spades
+        wchar_t crd[4] = { rankS[r][0], rankS[r][1], suitS[s], '\0' };
+        int cardColors[4] = { 0xC, 0xE, 0xA, 0xB };  // hearts, diamonds, clubs, spades
         // set card color by suit
         SetConsoleTextAttribute( hstdout, cardColors[s] );
-        cout << crd;
+        _setmode(_fileno(stdout), _O_U16TEXT);
+        wcout << crd[0] << crd[1] << crd[2] << crd[3];
         // reset output colors to default
+        _setmode(_fileno(stdout), _O_TEXT);
         SetConsoleTextAttribute( hstdout, csbi.wAttributes );
     }
     void getCard()
@@ -220,8 +224,8 @@ public:
         displayCard(suit, rnk);
     }
 protected:
-    char suitS[4] = { 3, 4, 5, 6 };  // 3 = hearts, 4 = diamonds, 5 = clubs, 6 = spades
-    char rankS[13][2] = { { ' ', '2' }, { ' ', '3' }, { ' ', '4' }, { ' ', '5' }, { ' ', '6' }, { ' ', '7' }, { ' ', '8' }, { ' ', '9' }, { '1', '0' },
+    wchar_t suitS[4] = { L'\u2665', L'\u2666', L'\u2663', L'\u2660' };  // 3 = hearts, 4 = diamonds, 5 = clubs, 6 = spades
+    wchar_t rankS[13][2] = { { ' ', '2' }, { ' ', '3' }, { ' ', '4' }, { ' ', '5' }, { ' ', '6' }, { ' ', '7' }, { ' ', '8' }, { ' ', '9' }, { '1', '0' },
                           { ' ', 'J' }, { ' ', 'Q' }, { ' ', 'K' }, { ' ', 'A' } };
 };
 
@@ -610,12 +614,14 @@ int main(int nNumberofArgs, char* pszArgs[])
         player1 = new Player;
         rollsNumber = 0;
         curTopScore = 0;
+        system("CLS");
         showGameTitle();
         printMsg(29);
         cout << curTopScore + 1;
         printMsg(30);
         cout << topScore[curTopScore];
         printMsg(9);
+        cout << endl << endl;
         system("pause");
         for(;;)
         {
