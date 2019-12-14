@@ -7,4 +7,6 @@ out/
 __pycache__/
 venv/
 workspace.xml
-
+.gradle/
+build/
+*.iml
