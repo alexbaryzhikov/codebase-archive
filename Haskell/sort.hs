@@ -20,3 +20,13 @@ insert x i (as, bs, cs)
     | i < x     = (i : as, bs, cs)
     | i == x    = (as , i : bs, cs)
     | otherwise = (as, bs, i : cs)
+
+
+-- variant 3
+
+sort2 :: Ord a => [a] -> [a]
+sort2 [] = []
+sort2 xs = (sort2 as) ++ bs ++ (sort2 cs)
+    where as = [a | a <- xs, a < head xs]
+          bs = [b | b <- xs, b == head xs]
+          cs = [c | c <- xs, c > head xs]
