@@ -32,7 +32,7 @@ valid Div x y = x `mod` y == 0
 data Expr = Val Int | App Op Expr Expr
 
 instance Show Expr where
-  show (Val x) = show x
+  show (Val x)     = show x
   show (App o x y) = "(" ++ show x ++ " " ++ show o ++ " " ++ show y ++ ")"
 
 eval :: Expr -> [Int]
@@ -53,7 +53,7 @@ choices xs = [] : [x : cs | (ys, zs) <- splits xs
                           , cs <- choices (ys ++ tail zs)]
 
 values :: Expr -> [Int]
-values (Val n) = [n]
+values (Val n)     = [n]
 values (App _ l r) = values l ++ values r
 
 solution :: Expr -> [Int] -> Int -> Bool
