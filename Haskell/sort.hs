@@ -14,7 +14,6 @@ sort1 [] = []
 sort1 (x : xs) = (sort as) ++ bs ++ (sort cs)
     where (as, bs, cs) = foldr (insert x) ([], [], []) (x : xs)
 
-
 insert :: Ord a => a -> a -> ([a], [a], [a]) -> ([a], [a], [a])
 insert x i (as, bs, cs)
     | i < x     = (i : as, bs, cs)
