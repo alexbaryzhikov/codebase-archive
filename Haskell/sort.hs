@@ -6,7 +6,6 @@ sort (x : xs) = (sort ys) ++ [x] ++ (sort zs)
     where ys = [y | y <- xs, y <= x]
           zs = [z | z <- xs, z > x]
 
-
 -- variant 2 (single pass)
 
 sort1 :: Ord a => [a] -> [a]
@@ -19,7 +18,6 @@ insert x i (as, bs, cs)
     | i < x     = (i : as, bs, cs)
     | i == x    = (as , i : bs, cs)
     | otherwise = (as, bs, i : cs)
-
 
 -- variant 3
 
