@@ -26,6 +26,18 @@ collatzChain x = x : next
 numLongChains :: Int
 numLongChains = length $ filter (\xs -> length xs > 15) $ map collatzChain [1..100]
 
+sum' :: Num a => [a] -> a
+sum' = foldl (+) 0
+
+map' :: (a -> b) -> [a] -> [b]
+map' f = foldr (\x acc -> f x : acc) []
+
+elem' :: Eq a => a -> [a] -> Bool
+elem' x = foldr (\y acc -> x == y || acc) False
+
+reverse' :: [a] -> [a]
+reverse' = foldl (\acc x -> x:acc) []
+
 main :: IO ()
 main = do
     print $ applyTwice (+3) 1 -- 7
@@ -47,3 +59,6 @@ main = do
 
     print $ collatzChain 13 -- [13,40,20,10,5,16,8,4,2,1]
     print numLongChains -- 66
+
+    print $ sum' [1,2,3] -- 6
+    print $ map' (+2) [1,2,3] -- [3,4,5]
