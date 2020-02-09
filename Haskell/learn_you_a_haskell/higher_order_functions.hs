@@ -38,13 +38,25 @@ elem' x = foldr (\y acc -> x == y || acc) False
 reverse' :: [a] -> [a]
 reverse' = foldl (\acc x -> x:acc) []
 
+product' :: Num a => [a] -> a
+product' = foldl (*) 1
+
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' pred = foldr (\x acc -> if (pred x) then x : acc else acc) []
+
+last' :: [a] -> a
+last' (x:xs) = foldl (\acc x -> x) x xs
+
+first' :: [a] -> a
+first' = foldr1 (\x acc -> x)
+
 main :: IO ()
 main = do
     print $ applyTwice (+3) 1 -- 7
     print $ applyTwice (3:) [1] -- [3,3,1]
     print $ applyTwice (++ " haha") "hey" -- "hey haha haha"
 
-    print $ zipWith' (+) [1,2,3] [4,5,6] -- [5,7,9]
+    print $ zipWith' (+) [1,2,3] [4,5,6] -- [5,7,9]:
     print $ zipWith' (++) ["foo ", "bar ", "baz "] ["fighters", "hoppers", "aldrin"]
 
     print $ flip' zip "hello" [1..] -- [(1,'h'),(2,'e'),(3,'l'),(4,'l'),(5,'o')]
