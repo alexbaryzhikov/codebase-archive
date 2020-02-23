@@ -26,6 +26,8 @@ collatzChain x = x : next
 numLongChains :: Int
 numLongChains = length $ filter (\xs -> length xs > 15) $ map collatzChain [1..100]
 
+-- Fold
+
 sum' :: Num a => [a] -> a
 sum' = foldl (+) 0
 
@@ -49,6 +51,25 @@ last' (x:xs) = foldl (\acc x -> x) x xs
 
 first' :: [a] -> a
 first' = foldr1 (\x acc -> x)
+
+and' :: [Bool] -> Bool
+and' = foldr (&&) True
+
+-- Scan
+
+sqrtSums :: Int
+sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1
+
+twoProductsOfTripledZippedByMax :: [Int] -> [Int] -> [Int]
+twoProductsOfTripledZippedByMax xs ys = replicate 2 . product . map (*3) $ zipWith max xs ys
+
+-- Function composition
+
+toNegatives :: [Int] -> [Int]
+toNegatives = map (negate . abs)
+
+negativeTailSums :: [[Int]] -> [Int]
+negativeTailSums = map (negate . sum . tail)
 
 main :: IO ()
 main = do
@@ -74,3 +95,5 @@ main = do
 
     print $ sum' [1,2,3] -- 6
     print $ map' (+2) [1,2,3] -- [3,4,5]
+
+    print $ twoProductsOfTripledZippedByMax [1,4] [2,3] -- [72,72]
